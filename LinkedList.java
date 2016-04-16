@@ -1,15 +1,5 @@
 package hashTable;
 
-class ListItem<T> {
-	public T element;
-	public ListItem<T> next;
-	
-	ListItem (T element, ListItem<T> next) {
-		this.element = element;
-		this.next = next;
-	}
-}
-
 public class LinkedList<T> {
 	private ListItem<T> firstItem;
 	private ListItem<T> lastItem;
