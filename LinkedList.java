@@ -1,20 +1,44 @@
 package hashTable;
 
-
 class ListItem<T> {
 	public T element;
-	public T next;
+	public ListItem<T> next;
 	
-	ListItem (T element, T next){
+	ListItem (T element, ListItem<T> next) {
 		this.element = element;
 		this.next = next;
 	}
 }
 
 public class LinkedList<T> {
-	public ListItem<T> firstItem;
+	private ListItem<T> firstItem;
+	private ListItem<T> lastItem;
 
+	LinkedList() {
+		firstItem = null;
+		lastItem = null;
+	}
+	
 	LinkedList(ListItem<T> firstItem){
 		this.firstItem = firstItem;
+		lastItem = firstItem;
+	}
+	public void setFirstItem(ListItem<T> firstItem){
+		this.firstItem = firstItem;
+	}
+	public void addNewItem(ListItem<T> newItem){
+		lastItem.next = newItem;
+		lastItem = newItem;
+	}
+	public void insertAfter(ListItem<T> existingItem, ListItem<T> newItem) {
+		ListItem<T> next = existingItem.next;
+		existingItem.next = newItem;
+		newItem.next = next;
+	}
+	public ListItem<T> getFirstItem(){
+		return firstItem;
+	}
+	public ListItem<T> getLastItem(){
+		return lastItem;
 	}
 }
