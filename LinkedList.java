@@ -25,6 +25,13 @@ public class LinkedList<T> {
 		existingItem.next = newItem;
 		newItem.next = next;
 	}
+	public void deleteAfter(ListItem<T> existingItem) {
+		ListItem<T> firstAfter = existingItem.next;
+		ListItem<T> secondAfter = firstAfter.next;
+		existingItem.next = secondAfter;
+	}
+	
+	
 	public ListItem<T> getFirstItem(){
 		return firstItem;
 	}
